@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [logoFailed, setLogoFailed] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -11,6 +13,10 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isHome = location.pathname === "/";
+
+  const navLinkClass = "text-gray-300 hover:text-white font-sans text-sm font-medium tracking-wide transition-colors";
 
   return (
     <header
@@ -23,7 +29,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Branding */}
         <div className="flex items-center gap-4">
-          <a href="#" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group">
             {logoFailed ? (
               <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center border-2 border-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.5)] group-hover:scale-105 transition-transform">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,37 +53,28 @@ export default function Header() {
                 Liga de Empreendedorismo
               </span>
             </div>
-          </a>
+          </Link>
         </div>
 
         {/* Navigation Menu for Desktop */}
         <nav className="hidden md:flex items-center gap-8">
-          <a
-            href="#quem-somos"
-            className="text-gray-300 hover:text-white font-sans text-sm font-medium tracking-wide transition-colors"
-          >
+          <a href={isHome ? "#quem-somos" : "/#quem-somos"} className={navLinkClass}>
             Quem Somos
           </a>
-          <a
-            href="#mvv"
-            className="text-gray-300 hover:text-white font-sans text-sm font-medium tracking-wide transition-colors"
-          >
+          <a href={isHome ? "#mvv" : "/#mvv"} className={navLinkClass}>
             M.V.V.
           </a>
-          <a
-            href="#organizacao"
-            className="text-gray-300 hover:text-white font-sans text-sm font-medium tracking-wide transition-colors"
-          >
+          <a href={isHome ? "#organizacao" : "/#organizacao"} className={navLinkClass}>
             Nosso Time
           </a>
-          <a
-            href="#iniciativas"
-            className="text-gray-300 hover:text-white font-sans text-sm font-medium tracking-wide transition-colors"
-          >
+          <Link to="/alumni" className={navLinkClass}>
+            Alumni
+          </Link>
+          <a href={isHome ? "#iniciativas" : "/#iniciativas"} className={navLinkClass}>
             Iniciativas
           </a>
           <a
-            href="#contatos"
+            href={isHome ? "#contatos" : "/#contatos"}
             className="px-4 py-2 rounded-full bg-purple-600/20 text-purple-200 border border-purple-500/30 hover:bg-purple-600 hover:text-white hover:border-purple-500 text-sm font-medium transition-all shadow-[0_0_15px_rgba(168,85,247,0.1)] hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]"
           >
             Contatos
@@ -87,7 +84,7 @@ export default function Header() {
         {/* Simple Touch Hint for responsiveness */}
         <div className="md:hidden flex items-center">
           <a
-            href="#contatos"
+            href={isHome ? "#contatos" : "/#contatos"}
             className="text-xs px-3 py-1.5 rounded-full bg-purple-600/30 text-purple-200 border border-purple-500/30"
           >
             Fale Conosco
