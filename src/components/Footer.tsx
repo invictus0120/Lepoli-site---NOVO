@@ -15,9 +15,9 @@ export default function Footer() {
         <div className="flex flex-col gap-6">
           <div className="flex flex-wrap items-center gap-6">
             {/* Logo 1 - LEPoli */}
-            <div className="h-16 flex items-center">
+            <div className="h-24 flex items-center">
               {logoErrors.lepoli ? (
-                <span className="font-display font-bold text-white text-lg tracking-wider border border-purple-500/30 px-3 py-1.5 rounded-xl bg-purple-500/10">
+                <span className="font-display font-bold text-white text-xl tracking-wider border border-purple-500/30 px-4 py-2 rounded-xl bg-purple-500/10">
                   LEPoli
                 </span>
               ) : (
@@ -26,15 +26,15 @@ export default function Footer() {
                   alt="Logo LEPoli"
                   referrerPolicy="no-referrer"
                   onError={() => handleLogoError("lepoli")}
-                  className="h-16 w-auto object-contain brightness-100 grayscale-[20%] hover:grayscale-0 transition-all duration-300"
+                  className="h-24 w-auto object-contain brightness-100 grayscale-[20%] hover:grayscale-0 transition-all duration-300"
                 />
               )}
             </div>
 
             {/* Logo 2 - POLI USP */}
-            <div className="h-16 flex items-center">
+            <div className="h-24 flex items-center">
               {logoErrors.poli ? (
-                <span className="font-display font-medium text-slate-350 text-xs tracking-widest border border-white/10 px-3 py-1.5 rounded-xl bg-white/5">
+                <span className="font-display font-medium text-slate-350 text-sm tracking-widest border border-white/10 px-4 py-2 rounded-xl bg-white/5">
                   Escola Politécnica
                 </span>
               ) : (
@@ -43,15 +43,15 @@ export default function Footer() {
                   alt="Logo Poli USP"
                   referrerPolicy="no-referrer"
                   onError={() => handleLogoError("poli")}
-                  className="h-14 w-auto object-contain opacity-80 hover:opacity-100 transition-all duration-300"
+                  className="h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-all duration-300"
                 />
               )}
             </div>
 
             {/* Logo 3 - USP */}
-            <div className="h-16 flex items-center">
+            <div className="h-24 flex items-center">
               {logoErrors.usp ? (
-                <span className="font-display font-bold text-white text-base tracking-widest bg-white/5 border border-white/10 px-3 py-1.5 rounded-xl">
+                <span className="font-display font-bold text-white text-lg tracking-widest bg-white/5 border border-white/10 px-4 py-2 rounded-xl">
                   USP
                 </span>
               ) : (
@@ -60,12 +60,12 @@ export default function Footer() {
                   alt="Logo USP"
                   referrerPolicy="no-referrer"
                   onError={() => handleLogoError("usp")}
-                  className="h-11 w-auto object-contain opacity-75 hover:opacity-100 transition-all duration-300"
+                  className="h-16 w-auto object-contain opacity-75 hover:opacity-100 transition-all duration-300"
                 />
               )}
             </div>
           </div>
-          <p className="font-sans text-xs text-gray-500 max-w-sm">
+          <p className="font-sans text-base text-gray-400 max-w-md leading-relaxed">
             Fomentando o protagonismo universitário e empreendedorismo de alto impacto na Escola Politécnica da Universidade de São Paulo.
           </p>
         </div>

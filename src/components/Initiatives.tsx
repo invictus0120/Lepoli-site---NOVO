@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 
 interface BentoItem {
   id: string;
@@ -11,14 +12,15 @@ interface BentoItem {
   gridClass: string;
 }
 
-export default function Initiatives() {
+  export default function Initiatives() {
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+  const navigate = useNavigate();
 
   const items: BentoItem[] = [
     {
       id: "garagem",
       title: "Garagem de Startups",
-      desc: "O laboratório e ecossistema onde ideias universitárias se transformam em MVP com mentorias, infraestrutura e conexões diretas.",
+      desc: "O lugar para fazer conexões com futuros empreendedores e ser mentorado por pessoas de referência no mercado.",
       imgSrc: "/foto-garagem.png",
       icon: "🚀",
       fallbackGradient: "from-purple-900 to-indigo-950",
@@ -27,7 +29,7 @@ export default function Initiatives() {
     {
       id: "onboarding",
       title: "Onboarding de Membros",
-      desc: "Treinamento intensivo prático de integração para alinhar novos membros à cultura e aos projetos da LEPoli USP.",
+      desc: "Treinamento intensivo de integração de novos membros à cultura e aos projetos da LEPoli.",
       imgSrc: "/foto-onboarding.png",
       icon: "⭐",
       fallbackGradient: "from-indigo-900 to-[#0b3d91]",
@@ -36,7 +38,7 @@ export default function Initiatives() {
     {
       id: "estagios",
       title: "Programa de Estágios",
-      desc: "Oportunidades exclusivas de conexão e posições de liderança em startups parceiras e fundos de venture capital.",
+      desc: "Oportunidades exclusivas de conexão e aprendizado a em startups e empresas inovadoras.",
       // Como você não enviou uma foto específica para estágios, mantivemos a estrutura. 
       // Se tiver uma foto, basta colocar na pasta public como "foto-estagios.jpg" e alterar aqui embaixo.
       imgSrc: "/foto_estagios.png",
@@ -47,7 +49,7 @@ export default function Initiatives() {
     {
       id: "founders",
       title: "Founder's Talk",
-      desc: "Eventos abertos aproximando alunos a fundadores lendários e grandes expoentes de tecnologia do cenário brasileiro.",
+      desc: "Evento abertoo aproximando a comunidade politécnica a founders e grandes expoentes de tecnologia.",
       imgSrc: "/foto-founders.png",
       icon: "🎙️",
       fallbackGradient: "from-[#0b3d91] to-purple-950",
@@ -94,11 +96,12 @@ export default function Initiatives() {
             return (
               <motion.div
                 key={item.id}
+                onClick={() => navigate('/projetos')}
                 initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className={`group relative rounded-3xl overflow-hidden bg-gradient-to-tr ${item.fallbackGradient} bg-cover bg-center border border-white/10 flex flex-col justify-end p-6 sm:p-8 text-left transition-all hover:border-purple-500/40 hover:shadow-[0_15px_40px_rgba(168,85,247,0.15)] ${item.gridClass}`}
+                className={`group relative rounded-3xl overflow-hidden bg-gradient-to-tr ${item.fallbackGradient} bg-cover bg-center border border-white/10 flex flex-col justify-end p-6 sm:p-8 text-left transition-all hover:border-purple-500/40 hover:shadow-[0_15px_40px_rgba(168,85,247,0.15)] cursor-pointer ${item.gridClass}`}
                 style={backgroundStyle}
               >
                 {/* Image detector to flag fallbacks */}

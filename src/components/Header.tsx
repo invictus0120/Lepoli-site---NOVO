@@ -58,21 +58,12 @@ export default function Header() {
 
         {/* Navigation Menu for Desktop */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href={isHome ? "#quem-somos" : "/#quem-somos"} className={navLinkClass}>
-            Quem Somos
-          </a>
-          <a href={isHome ? "#mvv" : "/#mvv"} className={navLinkClass}>
-            M.V.V.
-          </a>
-          <a href={isHome ? "#organizacao" : "/#organizacao"} className={navLinkClass}>
-            Nosso Time
-          </a>
+          <Link to="/projetos" className={navLinkClass}>
+            Projetos
+          </Link>
           <Link to="/alumni" className={navLinkClass}>
             Alumni
           </Link>
-          <a href={isHome ? "#iniciativas" : "/#iniciativas"} className={navLinkClass}>
-            Iniciativas
-          </a>
           <a
             href={isHome ? "#contatos" : "/#contatos"}
             className="px-4 py-2 rounded-full bg-purple-600/20 text-purple-200 border border-purple-500/30 hover:bg-purple-600 hover:text-white hover:border-purple-500 text-sm font-medium transition-all shadow-[0_0_15px_rgba(168,85,247,0.1)] hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]"

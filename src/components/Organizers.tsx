@@ -1,5 +1,23 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
+import { 
+  PresidenciaVisual, 
+  VicePresidenciaVisual, 
+  ComunicacaoVisual, 
+  AceleracaoVisual, 
+  EventosVisual 
+} from './CardVisuals';
+
+const renderVisual = (id: string) => {
+  switch(id) {
+    case "presidencia": return <PresidenciaVisual />;
+    case "vice-presidencia": return <VicePresidenciaVisual />;
+    case "comunicacao": return <ComunicacaoVisual />;
+    case "aceleracao": return <AceleracaoVisual />;
+    case "eventos": return <EventosVisual />;
+    default: return null;
+  }
+};
 
 interface CardData {
   id: string;
@@ -49,7 +67,7 @@ export default function Organizers() {
       id: "comunicacao",
       category: "team",
       title: "Comunicação",
-      frontDesc: "Responsável pela marca/imagem da Liga, redes sociais, marketing visual e atração de novos talentos.",
+      frontDesc: "Responsável pela imagem da Liga, redes sociais, marketing visual e atração de novos talentos.",
       backTitle: "Diretoria",
       backDesc: "Baglioni",
       department: "Engenharia Civil",
@@ -62,7 +80,7 @@ export default function Organizers() {
       id: "aceleracao",
       category: "team",
       title: "Aceleração",
-      frontDesc: "Focado no desenvolvimento direto de startups, mentoria especializada e aceleração de ideias inovadoras.",
+      frontDesc: "Focado no desenvolvimento e na capacitação dos membros da liga.",
       backTitle: "Diretoria",
       backDesc: "Felipe",
       department: "Engenharia Civil",
@@ -75,7 +93,7 @@ export default function Organizers() {
       id: "eventos",
       category: "team",
       title: "Eventos",
-      frontDesc: "Gere o planejamento e execução física/virtual de palestras, Founder's Talk e workshops práticos.",
+      frontDesc: "Organiza e executa os principais eventos da liga.",
       backTitle: "Diretoria",
       backDesc: "Kart",
       department: "Engenharia Civil",
@@ -110,9 +128,9 @@ export default function Organizers() {
               <div className={`relative w-full h-full preserve-3d transition-transform duration-700 ${flippedCards[card.id] ? "rotate-y-180" : ""}`}>
                 {/* FRONT */}
                 <div className={`absolute inset-0 backface-hidden rounded-3xl p-6 flex flex-col items-center justify-between border-2 ${card.frontBg} ${card.borderColor}`}>
-                  <div>
-                    <div className="w-14 h-14 rounded-full bg-black/5 flex items-center justify-center text-3xl mb-4">{card.icon}</div>
-                    <h3 className="font-display font-bold text-2xl">{card.title}</h3>
+                  <div className="w-full">
+                    {renderVisual(card.id)}
+                    <h3 className="font-display font-bold text-2xl mt-4">{card.title}</h3>
                     <p className="text-sm opacity-90 px-2">{card.frontDesc}</p>
                   </div>
                 </div>
@@ -142,7 +160,9 @@ export default function Organizers() {
               <div className={`relative w-full h-full preserve-3d transition-transform duration-700 ${flippedCards[card.id] ? "rotate-y-180" : ""}`}>
                 {/* FRONT */}
                 <div className={`absolute inset-0 backface-hidden rounded-3xl p-6 flex flex-col items-center justify-between border-2 ${card.frontBg} ${card.borderColor}`}>
-                  <div className="w-14 h-14 rounded-full bg-black/5 flex items-center justify-center text-3xl mb-4">{card.icon}</div>
+                  <div className="w-full mb-4">
+                    {renderVisual(card.id)}
+                  </div>
                   <h3 className="font-bold text-xl">{card.title}</h3>
                   <p className="text-sm opacity-90">{card.frontDesc}</p>
                 </div>

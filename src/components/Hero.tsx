@@ -75,7 +75,7 @@ export default function Hero() {
           className="font-sans text-lg sm:text-xl text-gray-200 leading-relaxed text-justify max-w-3xl mb-12 flex flex-col"
         >
           <span className="text-center-last">
-            Conectamos alunos da Escola Politécnica ao mercado de trabalho e ao ecossistema de inovação, desenvolvendo projetos inovadores para a sociedade.
+            Conectamos alunos da Escola Politécnica ao mercado de trabalho e ao empreendedorismo
           </span>
         </motion.p>
 

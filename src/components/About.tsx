@@ -33,7 +33,7 @@ export default function About() {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="font-sans text-lg sm:text-xl text-slate-200 leading-relaxed text-justify mb-12"
         >
-          A LEPoli é uma comunidade de estudantes apaixonados por inovação, empreendedorismo e impacto. Fomentamos o protagonismo universitário com conexões e prática. Aqui, o objetivo é claro: tirar ideias do papel e colocar na realidade.
+          A LEPoli é uma comunidade de estudantes apaixonados por inovação, empreendedorismo e impacto. Fomentamos o protagonismo universitário com conexões e prática. Aqui, o objetivo é tirar ideias do papel e colocar na realidade.
         </motion.p>
 
         {/* Visual Pill Accents */}
@@ -48,7 +48,7 @@ export default function About() {
             { label: "Protagonismo", icon: "⭐" },
             { label: "Inovação", icon: "💡" },
             { label: "Conexões", icon: "🌐" },
-            { label: "Prática", icon: "🛠️" },
+            { label: "Capacitação", icon: "🛠️" },
           ].map((item, index) => (
             <div
               key={index}
