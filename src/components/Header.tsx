@@ -16,6 +16,12 @@ export default function Header() {
 
   const isHome = location.pathname === "/";
 
+  const handleNavClick = (path: string) => {
+    if (location.pathname === path) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   const navLinkClass = "text-gray-300 hover:text-white font-sans text-sm font-medium tracking-wide transition-colors";
 
   return (
@@ -29,7 +35,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Branding */}
         <div className="flex items-center gap-4">
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group" onClick={() => handleNavClick("/")}>
             {logoFailed ? (
               <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center border-2 border-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.5)] group-hover:scale-105 transition-transform">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,10 +64,13 @@ export default function Header() {
 
         {/* Navigation Menu for Desktop */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link to="/projetos" className={navLinkClass}>
+          <Link to="/" className={navLinkClass} onClick={() => handleNavClick("/")}>
+            Início
+          </Link>
+          <Link to="/projetos" className={navLinkClass} onClick={() => handleNavClick("/projetos")}>
             Projetos
           </Link>
-          <Link to="/alumni" className={navLinkClass}>
+          <Link to="/alumni" className={navLinkClass} onClick={() => handleNavClick("/alumni")}>
             Alumni
           </Link>
           <a

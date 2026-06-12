@@ -36,24 +36,31 @@ interface BentoItem {
       gridClass: "md:col-span-1 md:row-span-1 min-h-[200px]",
     },
     {
-      id: "estagios",
-      title: "Programa de Estágios",
-      desc: "Oportunidades exclusivas de conexão e aprendizado a em startups e empresas inovadoras.",
-      // Como você não enviou uma foto específica para estágios, mantivemos a estrutura. 
-      // Se tiver uma foto, basta colocar na pasta public como "foto-estagios.jpg" e alterar aqui embaixo.
+      id: "summer-job",
+      title: "Summer Job",
+      desc: "Oportunidades de imersão e aprendizado rápido em startups durante as férias.",
       imgSrc: "/foto_estagios.png",
-      icon: "💼",
-      fallbackGradient: "from-slate-900 to-indigo-950",
+      icon: "☀️",
+      fallbackGradient: "from-amber-900 to-orange-950",
       gridClass: "md:col-span-1 md:row-span-1 min-h-[200px]",
     },
     {
       id: "founders",
       title: "Founder's Talk",
-      desc: "Evento abertoo aproximando a comunidade politécnica a founders e grandes expoentes de tecnologia.",
+      desc: "Evento aberto aproximando a comunidade politécnica a founders e grandes expoentes de tecnologia.",
       imgSrc: "/foto-founders.png",
       icon: "🎙️",
       fallbackGradient: "from-[#0b3d91] to-purple-950",
       gridClass: "md:col-span-2 md:row-span-1 min-h-[220px]",
+    },
+    {
+      id: "first-steps",
+      title: "First Steps",
+      desc: "Aprenda a Estruturar sua Startup",
+      imgSrc: "/FirstSteps.png",
+      icon: "🌱",
+      fallbackGradient: "from-green-900 to-[#0b3d91]",
+      gridClass: "md:col-span-1 md:row-span-1 min-h-[220px]",
     },
   ];
 
